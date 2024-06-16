@@ -16,7 +16,7 @@ public class Atividade2 {
 		
 		if(numero > 0) 
 			negativoOuPositivo = "positivo";
-		else 
+		else if(numero < 0)
 			negativoOuPositivo = "negativo";
 		
 		if((numero % 2) != 0)
