@@ -1,16 +1,15 @@
 package estrutura_de_dados;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
-public class Atividade1 {
+public class Atividade2 {
 
 	public static void main(String[] args) {
 
-		Queue<String> queueClients = new LinkedList<String>();
+		Stack<String> stackBooks = new Stack<String>();
 		Scanner scanner = new Scanner(System.in);
-		String name;
+		String bookName;
 		int option = 0;
 
 		while (true) {
@@ -18,13 +17,12 @@ public class Atividade1 {
 
 					---------------------------------------------
 
-					        Gerenciamento de Fila
-
+					        Gerenciamento de Livros
 					---------------------------------------------
 
-						1 - Adicionar Cliente ao fim da Fila
-						2 - Listar todos os Clientes
-						3 - Remover o primeiro Cliente da Fila
+						1 - Adicionar Livro na Pilha
+						2 - Listar todos os Livros
+						3 - Retirar Livro da Pilha
 
 						0 - Sair
 
@@ -42,38 +40,38 @@ public class Atividade1 {
 
 			switch (option) {
 			case 1:
-				System.out.println("\nAdicionar Cliente a fila");
+				System.out.println("\nAdicionar um Livro ao topo da Pilha");
 				System.out.println("---------------------------------------------");
-				System.out.printf("Digite o nome do Cliente: ");
+				System.out.printf("Digite o nome do Livro: ");
 				scanner.skip("\\R?");
-				name = scanner.nextLine();
+				bookName = scanner.nextLine();
 
-				queueClients.add(name);
-				System.out.println("\nCliente " + name + " adicionade ao fim da fila");
+				stackBooks.push(bookName);
+				System.out.println("\nLivro " + bookName + " adicionado ao começo da Pilha");
 
 				break;
 			case 2:
-				System.out.println("\nLista de Todos Clientes da Fila");
+				System.out.println("\nLista de Todos os Livros");
 				System.out.println("---------------------------------------------");
 
-				if (!queueClients.isEmpty()) {
-					System.out.println("Fila(" + queueClients.size() + ")");
-					for (var client : queueClients) {
-						System.out.println(client);
+				if (!stackBooks.isEmpty()) {
+					System.out.println("Pilha(" + stackBooks.size() + ")");
+					for (int i = stackBooks.size() - 1; i >= 0; i--) {
+					    System.out.println(stackBooks.get(i));
 					}
 				} else
-					System.out.println("A Fila está vazia");
+					System.out.println("A Pilha está vazia");
 
 				break;
 			case 3:
-				System.out.println("\nRemover Cliente da Fila");
+				System.out.println("\nRemover um Livro do topo");
 				System.out.println("---------------------------------------------");
 
-				if (!queueClients.isEmpty()) {
-					System.out.println("Cliente " + queueClients.poll() + " removide da fila");
+				if (!stackBooks.isEmpty()) {
+					System.out.println("Livro " + stackBooks.pop() + " retirado da pilha");
 
 				} else
-					System.out.println("A Fila está vazia");
+					System.out.println("A Pilha está vazia");
 
 				break;
 			default:
@@ -85,7 +83,6 @@ public class Atividade1 {
 			}
 
 		}
-
 	}
 
 }
